@@ -222,6 +222,36 @@
         -webkit-transform: rotateY(180deg);
         -moz-transform: rotateY(180deg);
     }
+    
+    .btn-default.disabled,
+    .btn-default.disabled:hover,
+    .btn-default.disabled:active {
+        background-color: #dcdcdc;
+        border-color: #d0cdce;
+    }
+    .rules-guide{
+        margin-bottom: 1rem;
+    }
+    .rules {
+        margin-right: 1.5rem;
+        margin-left: 1.5rem;
+        padding-bottom: 1.5rem;
+        color: #fff;
+        line-height: 200%;
+    }
+    
+    .rules .guide {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #f0d201;
+    }
+    
+    .rules .btn-style {
+        background-color: #f0d201;
+        border-color: #f0d201;
+        font-size: 2rem;
+        font-weight: 600;
+    }
     </style>
 </head>
 
@@ -410,6 +440,21 @@
                 </div>
             </div>
         </div>
+        <div class="rules-guide">
+            <div class="rules" style="padding-top:0.5rem;">
+                <div class="row-fluid">
+                    <div class="col-xs-12 guide">抽奖规则：</div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="row-fluid">
+                    <div class="col-xs-12">每次给支持的男神或者女神点赞都可以获得一次抽奖机会，每天最多有3次抽奖机会。</div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="row-fluid" style="padding-top: 1rem;"><a href="http://tzbl" class="btn btn-info col-xs-12 btn-style">我要抽奖</a>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
         <div class="footer">
             <div class="description">
                 <div class="content" style="padding-top:1.5rem;">
@@ -449,6 +494,7 @@ $(function() {
             $(this).parent().prev(".pic").children(".self").children(".eval").append("<span style='position:absolute;'>+1</span>");
             $(this).parent().prev(".pic").children(".self").children(".eval").children("span").fadeOut("slow");
             setTimeout(function() {
+                $(".choose").removeClass("btn-info").removeClass("icon-heart-empty").addClass("btn-default").addClass("icon-heart").addClass('disabled').css("color", "#f591c9").html("&nbsp赞过啦");
                 $(_this).parent().prev(".pic").children(".self").children(".eval").html("&nbsp" + value);
                 $(_this).parent().prev(".pic").children(".self").children(".eval").attr("data-id", 0);
             }, 700);
